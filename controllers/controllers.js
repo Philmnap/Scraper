@@ -6,21 +6,29 @@ var cheerio = require('cheerio');
 var Comment = require('../models/Comment.js');
 var Article = require('../models/Article.js');
 
+//index route that redirects to articles route
 router.get('/', function (req, res) {
     res.redirect('/articles');
 });
+
+//scrape route that scrapes the articeles from ESPN.com/NFL
 router.get('/scrape', function (req, res) {
     // body of html is grabbed with request
     request('http://www.espn.com/mlb/', function (error, response, html) {
+        // html is loaded into cheerio and we save it as the variable $
         var $ = cheerio.load(html);
         //create a array for storing the article titles
         var titlesArray = [];
-        $('article .text-container').each(function (i, element) {
+        $('headlineStack_list').each(function (i, element) {
             //result object to store articles and links to articles
             var result = {};
             //grab the title and link from the scrapped html and store in result
             result.title = $(this).children('.item-info-wrap').children('h1').text();
             result.link = $(this).children('.item-info-wrap').children('h1').children('a').attr('href');
+            result.push({
+                title: title,
+                link: link
+            });
 
             //checks that an empty articles arent pulled 
             if (result.title !== "" && result.link !== "") {
