@@ -1,17 +1,44 @@
 body {
+    background-image: ('../images/baseball.jpg');
     background-color: gray;
     padding-top: 70px;
 }
 
-.deleteNote {
-	display: inline-block;
-}
-
-.previousNotes {
-    display: inline-block;
-    width: 90%
-}
-
-#scrape {
-    margin: 8px 0px;
-}
+.articleBody{
+    height: 200px;
+    font-size: 20px;
+    overflow-y: scroll;
+    line-height: 150%;
+  }
+  
+  #commentName{
+    font-weight: bold;
+    background: #42a5f5;
+    color: white;
+  }
+  
+  .card-panel {
+      border-radius: 52px;
+  }
+  
+  .card {
+      border-radius: 10px;
+  }
+  
+  a {
+      color: #0e0e0e;
+  }
+  nav .brand-logo.center {
+      left: 9%;
+  }
+  
+  h5{
+    color:black;
+  }
+  
+  h5 .commentLable{
+      color: #fafafa;
+      background: #ec0000;
+      text-align: center;
+  
+  }
